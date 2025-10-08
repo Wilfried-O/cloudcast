@@ -1,5 +1,7 @@
+// App.jsx
 import { useState } from 'react';
 import { getCurrentByCity } from './services/openweather';
+import CurrentWeatherCard from './components/CurrentWeatherCard';
 import './App.css';
 
 export default function App() {
@@ -32,7 +34,7 @@ export default function App() {
                 fontFamily: 'system-ui',
             }}
         >
-            <h1>CloudCast – Fetch Test</h1>
+            <h1>CloudCast – Current Weather</h1>
 
             <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
                 <input
@@ -69,29 +71,19 @@ export default function App() {
                         color: '#b00020',
                         padding: 10,
                         borderRadius: 8,
+                        marginBottom: 10,
                     }}
                 >
                     {error}
                 </div>
             )}
 
-            {data && (
-                <pre
-                    style={{
-                        background: '#f7f7f7',
-                        padding: 12,
-                        borderRadius: 8,
-                        overflowX: 'auto',
-                        lineHeight: 1.3,
-                    }}
-                >
-                    {JSON.stringify(data, null, 4)}
-                </pre>
-            )}
+            {data && <CurrentWeatherCard data={data} units={units} />}
 
             {!loading && !data && !error && (
                 <p style={{ color: '#666' }}>
-                    Enter a city and click <b>Fetch</b> to test the API.
+                    Enter a city and click <b>Fetch</b> to see the current
+                    weather.
                 </p>
             )}
         </div>
