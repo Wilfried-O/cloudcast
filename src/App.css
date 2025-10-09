@@ -1,4 +1,195 @@
-.app-container {
-    text-align: center;
-    margin-top: 1rem;
+/* Ensure the background can occupy the whole page */
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+}
+
+.app {
+    min-height: 100dvh; /* better than 100vh on mobile */
+    transition:
+        background 400ms ease,
+        color 200ms ease;
+    color: #102a43; /* default dark text */
+    background: linear-gradient(180deg, #eef2f7, #ffffff);
+    padding: 16px;
+
+    /* Card + tiles (used by CurrentWeatherCard) */
+    --card-bg: rgba(255, 255, 255, 0.86);
+    --card-text: #102a43;
+    --card-muted: #667085;
+    --tile-bg: #f8f9fa;
+    --tile-border: #e6e6e6;
+
+    /* Form controls (light defaults) */
+    --field-bg: #ffffff;
+    --field-text: #102a43;
+    --field-border: #c9d1d9;
+    --field-placeholder: #8a96a3;
+
+    --btn-bg: #ffffff;
+    --btn-text: #102a43;
+    --btn-border: #c9d1d9;
+}
+
+.container {
+    max-width: 700px;
+    margin: 40px auto; /* center the content */
+}
+
+/* Subtle overlay for readability (daytime version) */
+.app::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+        1200px 800px at 50% -10%,
+        rgba(255, 255, 255, 0.4),
+        transparent 60%
+    );
+}
+
+/* ---------- Themes ---------- */
+
+/* Daytime */
+.theme-clear {
+    background: linear-gradient(180deg, #8fd3fe, #dfefff); /* blue sky */
+}
+
+.theme-clouds {
+    background: linear-gradient(180deg, #cfd8e3, #e9eef5);
+    color: #0b2540;
+}
+
+/* Night variants (backgrounds + text color) */
+.theme-night,
+.theme-night-clear {
+    background: radial-gradient(1000px 600px at 50% -20%, #1d2a44, #0b1220);
+    color: #e6eef8;
+}
+
+.theme-night-clouds {
+    background: linear-gradient(180deg, #2a3347, #111827);
+    color: #e6eef8;
+}
+
+/* Night palette: card/tiles + inputs/buttons */
+.theme-night,
+.theme-night-clear,
+.theme-night-clouds {
+    /* Card */
+    --card-bg: rgba(17, 24, 39, 0.65);
+    --card-text: #f5faff;
+    --card-muted: #cfd8e3;
+
+    /* Tiles inside the card */
+    --tile-bg: rgba(255, 255, 255, 0.12);
+    --tile-border: rgba(255, 255, 255, 0.28);
+
+    /* Form controls */
+    --field-bg: rgba(255, 255, 255, 0.08);
+    --field-text: #e6eef8;
+    --field-border: rgba(255, 255, 255, 0.28);
+    --field-placeholder: #cfd8e3;
+
+    --btn-bg: rgba(255, 255, 255, 0.12);
+    --btn-text: #e6eef8;
+    --btn-border: rgba(255, 255, 255, 0.28);
+}
+
+/* Night overlay: subtler than day */
+.theme-night::before,
+.theme-night-clear::before,
+.theme-night-clouds::before {
+    background: radial-gradient(
+        1200px 800px at 50% -10%,
+        rgba(255, 255, 255, 0.1),
+        transparent 60%
+    );
+}
+
+/* Wet stuff */
+.theme-drizzle {
+    background: linear-gradient(180deg, #b7c9d9, #d7e3ee);
+}
+
+.theme-rain {
+    background: linear-gradient(180deg, #94a9b8, #c6d3de);
+}
+
+.theme-thunder {
+    background: linear-gradient(180deg, #4a5568, #1f2937);
+    color: #eef5ff;
+}
+
+/* Cold stuff */
+.theme-snow {
+    background: linear-gradient(180deg, #e8f4ff, #ffffff);
+}
+
+/* Mist / haze */
+.theme-mist {
+    background: linear-gradient(180deg, #d9e1e8, #eef2f5);
+}
+
+/* Fallback */
+.theme-default {
+    background: linear-gradient(180deg, #eef2f7, #ffffff);
+}
+
+/* ---------- Form controls ---------- */
+
+.field,
+.select,
+.btn {
+    background: var(--field-bg);
+    color: var(--field-text);
+    border: 1px solid var(--field-border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font: inherit;
+
+    /* subtle separation from bright backgrounds */
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.5),
+        0 1px 2px rgba(16, 42, 67, 0.04);
+}
+
+.field::placeholder {
+    color: var(--field-placeholder);
+}
+
+.select {
+    appearance: none;
+}
+
+.btn {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border-color: var(--btn-border);
+    cursor: pointer;
+}
+
+.field:hover,
+.select:hover {
+    border-color: #aab4bf;
+}
+
+.btn:hover {
+    border-color: #9ca3af;
+}
+
+.field:focus-visible {
+    outline: 2px solid #3b82f6; /* sky-500 */
+    outline-offset: 2px;
+    border-color: #3b82f6;
+}
+
+/* Reduce motion preference (optional nicety) */
+@media (prefers-reduced-motion: reduce) {
+    .app {
+        transition: none;
+    }
 }
