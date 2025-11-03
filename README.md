@@ -1,31 +1,33 @@
 # CloudCast ☁️
 
-Your modern weather companion — live forecasts, dynamic visuals, and a clean React interface.
+Your modern weather companion — live forecasts, dynamic visuals, and a clean interface.
 
 ![App Preview](preview-app.png)
 
 ## 🌦️ Overview
 
 **CloudCast** is a modern weather app built with **React.js** that delivers real-time weather updates and 5-day forecasts.  
-It features dynamic visuals that adapt to the weather, giving users an immersive experience while staying informed.
+It features dynamic visuals that adapt to the weather and time of the day, giving users an immersive experience while staying informed.
+
+The project is deployed to a Vercel website [(Click here)](https://cloudcast-one.vercel.app/) for you to test the app right away!
 
 ---
 
 ## ✨ Features
 
-- **OpenWeather API Integration** – Fetch current weather and 5-day forecast data for any location in real time.
+- **OpenWeather API Integration** – Get current weather and 5-day forecast data for any location in real time.
 - **Current Weather Display** – Beautiful card view showing temperature, humidity, wind, and more.
 - **Location Search** – Quickly find forecasts by entering a city or location name.
 - **Unit Toggle** – Switch easily between °C and °F.
-- **(Planned)** Dynamic Backgrounds – Backgrounds automatically adjust to match weather conditions (sunny, rainy, cloudy, etc.).
-- **(Planned)** 5-Day Forecast – View detailed daily and hourly forecasts in a clean, card-based layout.
+- **Dynamic Backgrounds** – Backgrounds automatically adjust to match weather conditions (sunny, rainy, cloudy, etc.) and local time at the searched city : dark background at night
+- **(In Progress)** 5-Day Forecast – View detailed daily and hourly forecasts in a clean, card-based layout.
 - **Responsive Design** – Optimized for both desktop and mobile screens.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React.js
+- **Frontend:** React.js v.19
 - **Styling:** CSS + CSS Modules
 - **API:** OpenWeatherMap API
 - **Linting & Formatting:** ESLint, Prettier
@@ -91,16 +93,19 @@ It features dynamic visuals that adapt to the weather, giving users an immersive
 
 - ✅ **Initial Cleanup:** Removed default React boilerplate (logos, tests, `reportWebVitals.js`, etc.)
 - ✅ **Setup Complete:** Configured ESLint, Prettier, and project structure
-- ✅ **Current Weather Feature:** Fetches live data and displays with `CurrentWeatherCard` and utilities in `utils/format`
+- ✅ **Completed features:**
+    - Display current weather for a city using its name and showing the local time at that city
+    - Dynamic backgrounds that change with weather conditions and local time
+    - Unit Toggle (°C or °F)
 - ⚙️ **Work in Progress:**
-    - Dynamic backgrounds that change with weather conditions
-    - Location search improvements
+    - 5-day forecast display
+    - UI improvement: add logo and icons, polish dark mode
 
 ### 🧭 Next Steps
 
-- 5-day forecast display
 - Improve mobile responsiveness
-- Add dark mode support
+- Consider accessibility (aria)
+- Location search improvements (e.g. specify country for a more precise search)
 
 ---
 
