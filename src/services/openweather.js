@@ -10,3 +10,10 @@ const get = async path => {
 
 export const getCurrentByCity = (q, units = 'metric') =>
     get(`/weather?q=${encodeURIComponent(q)}&units=${units}`);
+
+export async function getForecastByCity(city, units = 'metric') {
+    const url = `${BASE}/forecast?q=${encodeURIComponent(city)}&units=${units}&appid=${KEY}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Failed to fetch forecast');
+    return res.json(); // returns { city, list: [...] }
+}

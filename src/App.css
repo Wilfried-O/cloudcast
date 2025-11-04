@@ -3,7 +3,6 @@ html,
 body,
 #root {
     height: 100%;
-    margin: 0;
 }
 
 .app {
@@ -192,4 +191,52 @@ body,
     .app {
         transition: none;
     }
+}
+
+/* ---------- 5-day forecast ---------- */
+.forecast {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.forecast-item {
+    background: var(--tile-bg);
+    border: 1px solid var(--tile-border);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.forecast-day {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.forecast-icon {
+    display: block;
+    margin: 4px auto;
+}
+
+.forecast-temps {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: baseline;
+    margin-top: 2px;
+}
+
+.forecast-temps .tmax {
+    font-weight: 700;
+}
+
+.forecast-temps .tmin {
+    opacity: 0.75;
+}
+
+.forecast-desc {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin-top: 2px;
 }
