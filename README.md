@@ -20,8 +20,8 @@ The project is deployed to a Vercel website [(Click here)](https://cloudcast-one
 - **Location Search** – Quickly find forecasts by entering a city or location name.
 - **Unit Toggle** – Switch easily between °C and °F.
 - **Dynamic Backgrounds** – Backgrounds automatically adjust to match weather conditions (sunny, rainy, cloudy, etc.) and local time at the searched city : dark background at night
-- **(In Progress)** 5-Day Forecast – View detailed daily and hourly forecasts in a clean, card-based layout.
-- **Responsive Design** – Optimized for both desktop and mobile screens.
+- **5-Days Forecast** – View detailed daily and hourly forecasts in a clean, card-based layout.
+- **(In Progress) Responsive Design** – Optimized for both desktop and mobile screens.
 
 ---
 
@@ -91,21 +91,23 @@ The project is deployed to a Vercel website [(Click here)](https://cloudcast-one
 
 ## 📋 Project Status
 
-- ✅ **Initial Cleanup:** Removed default React boilerplate (logos, tests, `reportWebVitals.js`, etc.)
-- ✅ **Setup Complete:** Configured ESLint, Prettier, and project structure
 - ✅ **Completed features:**
     - Display current weather for a city using its name and showing the local time at that city
     - Dynamic backgrounds that change with weather conditions and local time
+    - 5-days forecast display
     - Unit Toggle (°C or °F)
+
 - ⚙️ **Work in Progress:**
-    - 5-day forecast display
     - UI improvement: add logo and icons, polish dark mode
+    - Improve mobile responsiveness
 
 ### 🧭 Next Steps
 
-- Improve mobile responsiveness
 - Consider accessibility (aria)
-- Location search improvements (e.g. specify country for a more precise search)
+- Location search improvements:
+    - can specify country of the city
+    - search by postal code / zip code
+- Support French language, and then Spanish
 
 ---
 
