@@ -40,7 +40,7 @@ export default function SearchBar({
                 disabled={!city.trim() || loading}
                 aria-disabled={!city.trim() || loading}
             >
-                {loading ? 'Loading…' : 'Fetch'}
+                {loading ? 'Loading…' : 'Search'}
             </button>
         </form>
     );
