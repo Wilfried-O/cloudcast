@@ -79,8 +79,8 @@ export default function App() {
 
                 {!loading && !data && !error && (
                     <p style={{ color: '#666' }}>
-                        Enter a city and click <b>Fetch</b> to see the current
-                        weather and 5-day forecast.
+                        Enter a city and click <b>Search</b> to see the current
+                        weather and 5-days forecast.
                     </p>
                 )}
             </div>
